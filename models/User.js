@@ -1,6 +1,6 @@
-import mongoose from "mongoose";
+import {Schema,model} from "mongoose";
 
-let schema = new mongoose.Schema({
+let schema = new Schema({
     email: { type: String, required: true},
     password: { type: String, required: true},
     is_online: { type: Boolean, required: true},
@@ -12,6 +12,6 @@ let schema = new mongoose.Schema({
 
 let collection = "users"
 
-let User = mongoose.model(schema,collection)
+let User = model(collection,schema)
 
 export default User
