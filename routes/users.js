@@ -1,9 +1,20 @@
-import express from'express';
-const router = express.Router();
+import express from 'express'
+import controller from '../controllers/auth/auth.js'
+// import validator from '../middlewares/validator.js'
+// import schemaSignUp from "../schemas/userSignUp.js"
+// import schemaSignIn from "../schemas/userSignIn.js"
+import accountExistsSignUp from '../middlewares/accountExistsSignUp.js'
+import accountExistsSignIn from '../middlewares/accountExistsSignIn.js'
+import passwordIsOk from '../middlewares/passwordIsOk.js'
+import passport from '../middlewares/passport.js'
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+const { sign_up,sign_in,sign_out,token } = controller
+
+let router = express.Router();
+
+router.post('/signup', accountExistsSignUp, sign_up)
+router.post('/signin', accountExistsSignIn, passwordIsOk,sign_in)
+router.post('/token', passport.authenticate('jwt', {session:false}), token)
+router.post('/signout', passport.authenticate('jwt', {session:false}), sign_out)
 
 export default router

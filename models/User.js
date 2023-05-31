@@ -1,17 +1,17 @@
-import mongoose from "mongoose";
+import {Schema,model} from "mongoose";
 
-let schema = new mongoose.Schema({
+let schema = new Schema({
+    name: { type: String, required: true},
     email: { type: String, required: true},
     password: { type: String, required: true},
-    is_online: { type: Boolean, required: true},
-    is_verified: { type: Boolean, require: true},
-    verify_code: { type: String, required: true}
+    is_online: { type: Boolean, required: false},
+    is_verified: { type: Boolean, required: false}
 },{
     timestamps: true 
 })
 
 let collection = "users"
 
-let User = mongoose.model(schema,collection)
+let User = model(collection,schema)
 
 export default User
