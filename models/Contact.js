@@ -2,7 +2,6 @@ import {Schema,Types,model} from "mongoose";
 
 let schema = new Schema({
     name: { type: String, required: true},
-    last_name: { type: String, required: false},
     email: { type: String, required: false},
     phone: { type: Number, required: true},
     gender: { type: String, required: false},
