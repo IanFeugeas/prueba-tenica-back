@@ -1,8 +1,5 @@
 import express from 'express'
 import controller from '../controllers/auth/auth.js'
-// import validator from '../middlewares/validator.js'
-// import schemaSignUp from "../schemas/userSignUp.js"
-// import schemaSignIn from "../schemas/userSignIn.js"
 import accountExistsSignUp from '../middlewares/accountExistsSignUp.js'
 import accountExistsSignIn from '../middlewares/accountExistsSignIn.js'
 import passwordIsOk from '../middlewares/passwordIsOk.js'

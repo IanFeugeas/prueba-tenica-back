@@ -2,14 +2,14 @@ import {Schema,Types,model} from "mongoose";
 
 let schema = new Schema({
     name: { type: String, required: true},
+    last_name: { type: String, required: true},
     email: { type: String, required: false},
     phone: { type: Number, required: true},
-    gender: { type: String, required: false},
-    date: { type: Date, required: false},
+    date: { type: Array, required: false},
     address: { type: String, required: false},
-    address_number: { type: Number, required: true},
-    type: { type: String, required: true},
-    user_id: {  type: Types.ObjectId, ref: "users", required: true}
+    type_of_contact: { type: String, required: false},
+    origin: { type: String, required: false},
+    user_id: {  type: Types.ObjectId, ref: "users", required: false}
 },{
     timestamps: true
 })
