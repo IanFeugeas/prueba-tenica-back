@@ -17,14 +17,14 @@ const { update } = updateContact
 const { getOne } = oneContact
 const { getAll } = allContact
 
-router.post("/add", validator(contactSchema), contactEmailExist, create)
+router.post("/add", passport.authenticate('jwt', {session:false}), validator(contactSchema), contactEmailExist, create)
 
-router.delete("/:id", destroy)
+router.delete("/:id",passport.authenticate('jwt', {session:false}), destroy)
 
-router.put("/:id", update)
+router.put("/:id",passport.authenticate('jwt', {session:false}), update)
 
-router.get("/:id", getOne)
+router.get("/:id",passport.authenticate('jwt', {session:false}), getOne)
 
-router.get("/", getAll)
+router.get("/",passport.authenticate('jwt', {session:false}), getAll)
 
 export default router
