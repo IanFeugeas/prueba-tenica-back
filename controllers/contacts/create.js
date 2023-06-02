@@ -3,6 +3,7 @@ import Contact from "../../models/Contact.js";
 const contacts = {
     create: async(req,res,next) => {
         try{
+            req.body.user_id = req.user.id
             const{name, last_name, email, phone, date, address, type_of_contact, origin, user_id} = req.body
 
             const contact = await Contact.create({
@@ -13,7 +14,7 @@ const contacts = {
                 date, 
                 address, 
                 type_of_contact, 
-                origin, 
+                origin,
                 user_id
             })
 
