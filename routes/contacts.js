@@ -17,7 +17,7 @@ const { update } = updateContact
 const { getOne } = oneContact
 const { getAll } = allContact
 
-router.post("/add", passport.authenticate('jwt', {session:false}), validator(contactSchema), contactEmailExist, create)
+router.post("/add", passport.authenticate('jwt', {session:false}), contactEmailExist, create)
 
 router.delete("/:id",passport.authenticate('jwt', {session:false}), destroy)
 
