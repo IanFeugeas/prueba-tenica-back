@@ -9,7 +9,7 @@ let schema = new Schema({
     address: { type: String, required: false},
     type_of_contact: { type: String, required: false},
     origin: { type: String, required: false},
-    user_id: {  type: Types.ObjectId, ref: "users", required: false}
+    user_id: {  type: Types.ObjectId, ref: "users", required: true}
 },{
     timestamps: true
 })

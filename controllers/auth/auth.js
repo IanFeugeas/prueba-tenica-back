@@ -28,7 +28,7 @@ const controller = {
                 { is_online: true },
                 { new: true }
             )
-            
+            console.log(req.user)
             user.password = null
 
             const token = jwt.sign(
