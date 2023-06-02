@@ -10,6 +10,7 @@ const deleteContact = {
                 return res.status(200).json({
                     success: true,
                     message: "Contact successfully deleted",
+                    contact
                 })
             }else{
                 return res.status(404).json({
