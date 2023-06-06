@@ -4,17 +4,14 @@ const contacts = {
     create: async(req,res,next) => {
         try{
             req.body.user_id = req.user.id
-            const{name, last_name, email, phone, date, address, type_of_contact, origin, user_id} = req.body
+            const{name, last_name, email, phone, date, user_id} = req.body
 
             const contact = await Contact.create({
                 name,
                 last_name, 
                 email, 
                 phone, 
-                date, 
-                address, 
-                type_of_contact, 
-                origin,
+                date,
                 user_id
             })
 
